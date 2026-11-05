@@ -1,0 +1,61 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1440" height="860" viewBox="0 0 1440 860" role="img" aria-labelledby="title desc">
+  <title id="title">Conceito de arquitetura para controlador industrial</title>
+  <desc id="desc">Diagrama apenas conceitual dos blocos pretendidos. Não é esquema, layout ou pacote de fabricação.</desc>
+  <defs>
+    <linearGradient id="bg" x2="0" y2="1"><stop stop-color="#101c2d"/><stop offset="1" stop-color="#172a3c"/></linearGradient>
+    <marker id="arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="#72d4c4"/></marker>
+    <style>
+      .title{font:700 34px 'Segoe UI',sans-serif;fill:#f3f7fb}.sub{font:17px 'Segoe UI',sans-serif;fill:#b7c7d6}
+      .box{fill:#20374b;stroke:#72d4c4;stroke-width:2;rx:16}.concept{fill:#273448;stroke:#f2b96d;stroke-width:2;rx:16}
+      .head{font:700 18px 'Segoe UI',sans-serif;fill:#fff}.body{font:15px 'Segoe UI',sans-serif;fill:#d3dee8}.small{font:13px 'Segoe UI',sans-serif;fill:#c2cfdb}
+      .wire{fill:none;stroke:#72d4c4;stroke-width:3;marker-end:url(#arrow)}.dash{fill:none;stroke:#f2b96d;stroke-width:2.5;stroke-dasharray:9 8;marker-end:url(#arrow)}
+    </style>
+  </defs>
+  <rect width="1440" height="860" fill="url(#bg)"/>
+  <text x="70" y="75" class="title">CONTROLADOR INDUSTRIAL · ARQUITETURA PRETENDIDA</text>
+  <text x="70" y="108" class="sub">Visão de blocos para orientar o projeto futuro — sem conectividade elétrica ou validação de hardware</text>
+
+  <rect x="75" y="185" width="230" height="112" class="box"/>
+  <text x="190" y="225" text-anchor="middle" class="head">Entrada 4–20 mA</text>
+  <text x="190" y="253" text-anchor="middle" class="body">loop de instrumentação</text>
+  <text x="190" y="277" text-anchor="middle" class="small">estudo LTspice separado</text>
+
+  <rect x="390" y="185" width="230" height="112" class="box"/>
+  <text x="505" y="225" text-anchor="middle" class="head">Condicionamento</text>
+  <text x="505" y="253" text-anchor="middle" class="body">shunt + filtro RC</text>
+  <text x="505" y="277" text-anchor="middle" class="small">150 Ω · 1 kΩ · 100 nF</text>
+
+  <rect x="705" y="185" width="230" height="112" class="concept"/>
+  <text x="820" y="225" text-anchor="middle" class="head">Conversão A/D</text>
+  <text x="820" y="253" text-anchor="middle" class="body">ADC externo proposto</text>
+  <text x="820" y="277" text-anchor="middle" class="small">não incluído no esquema</text>
+
+  <rect x="1020" y="185" width="315" height="112" class="concept"/>
+  <text x="1177" y="225" text-anchor="middle" class="head">Microcontrolador</text>
+  <text x="1177" y="253" text-anchor="middle" class="body">ESP32-S3 · proposta</text>
+  <text x="1177" y="277" text-anchor="middle" class="small">firmware e I/O ainda não projetados</text>
+
+  <path d="M305 241H382M620 241H697M935 241H1012" class="wire"/>
+
+  <rect x="130" y="410" width="300" height="125" class="concept"/>
+  <text x="280" y="453" text-anchor="middle" class="head">Entradas digitais 24 V</text>
+  <text x="280" y="481" text-anchor="middle" class="body">isolação e proteção a definir</text>
+  <text x="280" y="510" text-anchor="middle" class="small">interface não implementada</text>
+
+  <rect x="570" y="410" width="300" height="125" class="concept"/>
+  <text x="720" y="453" text-anchor="middle" class="head">Comunicação RS-485</text>
+  <text x="720" y="481" text-anchor="middle" class="body">Modbus RTU · proposta</text>
+  <text x="720" y="510" text-anchor="middle" class="small">transceiver e proteção a definir</text>
+
+  <rect x="1010" y="410" width="300" height="125" class="concept"/>
+  <text x="1160" y="453" text-anchor="middle" class="head">Saídas digitais</text>
+  <text x="1160" y="481" text-anchor="middle" class="body">relés/atuadores · proposta</text>
+  <text x="1160" y="510" text-anchor="middle" class="small">drivers e cargas a dimensionar</text>
+
+  <path d="M1120 297V352H280V402M1177 297V368H720V402M1235 297V385H1160V402" class="dash"/>
+
+  <rect x="75" y="645" width="1260" height="135" fill="#332d29" stroke="#f2b96d" stroke-width="2" rx="15"/>
+  <text x="108" y="688" class="head" fill="#ffd391">STATUS DO REPOSITÓRIO</text>
+  <text x="108" y="722" class="body">Somente o shunt e o filtro RC aparecem no estudo LTspice. O projeto KiCad não contém circuito completo, footprints ou roteamento.</text>
+  <text x="108" y="752" class="body">Este desenho é uma arquitetura conceitual; não deve ser usado para fabricação, instalação ou ligação de equipamentos.</text>
+</svg>

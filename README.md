@@ -1,8 +1,32 @@
-# Projeto de Hardware Eletrônico e Layout de PCB Industrial em KiCad (`ESP32-S3 + 4–20 mA + RS-485 Modbus + I/O 24 VDC`)
+# Estudo de entrada analógica 4–20 mA e controlador industrial
 
-Repositório de Engenharia Eletrônica e Design de Placas de Circuito Impresso (**PCB Layout em KiCad EDA**) para um **Controlador Industrial IoT & Remota Modbus RTU/TCP** com alimentação 24 VDC, entradas digitais opto-isoladas, leitura de sensores industriais 4–20 mA (ADC 16 bits) e saídas a relé.
+Este repositório reúne um **estudo conceitual** de uma entrada analógica de loop
+4–20 mA e um esqueleto inicial de projeto para uma futura placa de I/O industrial.
+Os arquivos atuais não compõem uma placa funcional nem um pacote de fabricação.
 
-## Entregáveis de Engenharia e Manufatura (DFM / PCBA)
-- **Arquivos Nativos KiCad (`kicad_project/`):** Projeto `.kicad_pro`, Esquemático `.kicad_sch` e Layout de PCB `.kicad_pcb` (100×80 mm, regras IPC-2221 / IPC-7351).
-- **Pacote Gerber RS-274X (`gerbers/`):** Camadas de cobre (`F.Cu`, `B.Cu`), máscaras de solda (`F.Mask`, `B.Mask`), serigrafia (`F.SilkS`) e contorno mecânico (`Edge.Cuts`).
-- **Arquivos de Produção PCBA (`production/`):** Lista de Materiais (`BOM_JLCPCB.csv` com códigos LCSC e MPN) e Arquivo de Posicionamento SMD (`CPL_PickAndPlace.csv`).
+![Diagrama conceitual da arquitetura pretendida — não é esquema elétrico nem PCB](docs/architecture.svg)
+
+## O que existe
+
+- `ltspice_sim/Industrial_4_20mA_Analog_Frontend.asc`: estudo isolado com resistor
+  shunt de 150 Ω e filtro RC de 1 kΩ/100 nF. A simulação não valida ADC, proteção,
+  tolerâncias, isolamento ou comportamento de uma placa completa.
+- `kicad_project/`: arquivos KiCad com título e contorno de placa, mantidos apenas
+  como **esqueleto não conectado**. O esquema não contém símbolos ou nets e a PCB
+  não tem footprints, trilhas conectadas ou zonas de cobre.
+
+## O que ainda precisa ser projetado
+
+Esquema elétrico completo, seleção e dimensionamento dos componentes, isolamento e
+proteções, footprints e posicionamento, roteamento, plano de retorno, regras de
+fabricação, ERC/DRC aprovados, revisão independente e validação em protótipo.
+Compatibilidade eletromagnética, segurança e desempenho industrial não foram
+avaliados.
+
+Não há Gerbers, arquivos de furação, BOM de montagem ou arquivo pick-and-place
+válidos neste repositório. A pasta `production/` explica os critérios para uma
+futura entrega. Nenhum arquivo deve ser enviado a uma fabricante ou usado para
+montagem.
+
+O diagrama SVG mostra somente blocos funcionais pretendidos; não representa
+ligações, isolamento certificado nem uma implementação pronta.
