@@ -1,8 +1,16 @@
-# Projeto de Hardware Eletrônico e Layout de PCB Industrial em KiCad (`ESP32-S3 + 4–20 mA + RS-485 Modbus + I/O 24 VDC`)
+# Estudo de entrada analógica e placa de I/O industrial
 
-Repositório de Engenharia Eletrônica e Design de Placas de Circuito Impresso (**PCB Layout em KiCad EDA**) para um **Controlador Industrial IoT & Remota Modbus RTU/TCP** com alimentação 24 VDC, entradas digitais opto-isoladas, leitura de sensores industriais 4–20 mA (ADC 16 bits) e saídas a relé.
+Este repositório registra uma proposta de controladora com ESP32-S3, sinais de 24 V, entrada de 4–20 mA e comunicação RS-485. Os arquivos atuais são um rascunho de estudo; não formam uma placa funcional.
 
-## Entregáveis de Engenharia e Manufatura (DFM / PCBA)
-- **Arquivos Nativos KiCad (`kicad_project/`):** Projeto `.kicad_pro`, Esquemático `.kicad_sch` e Layout de PCB `.kicad_pcb` (100×80 mm, regras IPC-2221 / IPC-7351).
-- **Pacote Gerber RS-274X (`gerbers/`):** Camadas de cobre (`F.Cu`, `B.Cu`), máscaras de solda (`F.Mask`, `B.Mask`), serigrafia (`F.SilkS`) e contorno mecânico (`Edge.Cuts`).
-- **Arquivos de Produção PCBA (`production/`):** Lista de Materiais (`BOM_JLCPCB.csv` com códigos LCSC e MPN) e Arquivo de Posicionamento SMD (`CPL_PickAndPlace.csv`).
+## O que está nos arquivos
+
+- `kicad_project/`: o esquema contém apenas o quadro de identificação; a placa tem o contorno e poucos segmentos sem circuito conectado;
+- `ltspice_sim/`: simulação isolada de um estágio de entrada, sem validação de uma placa completa;
+- `gerbers/`: exportações de contorno usadas como rascunho, não um conjunto de camadas de fabricação;
+- `production/`: BOM e posicionamento preliminares, sem correspondência comprovada com uma placa montável.
+
+Os arquivos foram mantidos para registrar o estado do estudo. Não envie os Gerbers, a BOM ou o arquivo de posicionamento para fabricação ou montagem.
+
+## Próximas etapas
+
+Ainda seria necessário desenvolver o esquema, selecionar e posicionar os componentes, completar o roteamento, executar ERC/DRC, revisar as regras de fabricação e validar um protótipo. Isolamento, proteção, compatibilidade eletromagnética e desempenho industrial não foram demonstrados.
